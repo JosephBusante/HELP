@@ -1,0 +1,28 @@
+2018-03-15 17:40:26 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "PLAY_EVOLUTIONS" not found; SQL statement:
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-193]
+2019-03-02 23:12:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: This CLOB or BLOB reference timed out: "27/-3" [90039-193]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.store.LobStorageMap.getInputStream(LobStorageMap.java:281)
+	at org.h2.value.ValueLobDb.getInputStream(ValueLobDb.java:381)
+	at org.h2.value.ValueLobDb.getReader(ValueLobDb.java:366)
+	at org.h2.value.ValueLobDb.getString(ValueLobDb.java:281)
+	at org.h2.value.ValueLobDb.compareSecure(ValueLobDb.java:350)
+	at org.h2.value.Value.compareTo(Value.java:1016)
+	at org.h2.jdbc.JdbcResultSet.patchCurrentRow(JdbcResultSet.java:3816)
+	at org.h2.jdbc.JdbcResultSet.updateRow(JdbcResultSet.java:3030)
+	at org.h2.server.web.WebApp.editResult(WebApp.java:1077)
+	at org.h2.server.web.WebApp.process(WebApp.java:226)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:169)
+	at org.h2.server.web.WebThread.process(WebThread.java:133)
+	at org.h2.server.web.WebThread.run(WebThread.java:89)
+	at java.lang.Thread.run(Thread.java:748)
+2019-03-03 00:41:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CATEGORY CATEGORY_PRODUCT PRODUCT[*]"; SQL statement:
+SELECT * FROM CATEGORY CATEGORY_PRODUCT PRODUCT [42000-193]
+2019-03-03 00:41:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT * FROM CATEGORY_PRODUCT CATEGORY PRODUCT[*]"; SQL statement:
+SELECT * FROM CATEGORY_PRODUCT CATEGORY PRODUCT [42000-193]

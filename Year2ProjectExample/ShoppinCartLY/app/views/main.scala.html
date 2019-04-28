@@ -1,0 +1,85 @@
+@(title: String, user: models.users.User )(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>East Peak - @title</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="@routes.Assets.versioned("stylesheets/main.css")" rel="stylesheet" />
+<style>
+	    .footer { font-weight: bold; color: white; background-color: black; }
+	    .midcol h1 { margin-top: 2em; text-align: center; font-weight: bold; }
+	    .midcol h3 { text-align: center; color: steelblue; }
+	
+	</style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="@routes.ProductCtrl.listProducts(0)">East Peak</a>
+            </div>
+
+            <ul class="nav navbar-nav">
+
+                <li @if(title=="Products" ){class="active"}>
+                    <a href="/">About Us</a>
+                </li>
+
+                <li>
+                    <a href="/Mens">Mens</a>
+                </li>
+
+                <li>
+                    <a href="/Women">Women</a>
+                </li>
+                <li @if(title=="Login"){class="active"}>
+                    @if(user != null) {
+                        <a href="@controllers.security.routes.LoginCtrl.logout()">Logout @user.getName()</a>
+                    } else {
+                        <a href="@controllers.security.routes.LoginCtrl.login()">Login</a>
+                    }
+
+                </li>
+               
+            </ul>
+
+        </div>
+
+    </nav>
+<div class="col-sm-6">
+		    <div class="midcol">
+<img src="/assets/images/productImages/Banner.jpg"
+			<h1>Welcome to "East Peak"</h1>
+			<h3>The place where you can buy good quality clothes</h3>
+		    </div>
+
+    <container>
+        <row>
+            <div class="col-md-12">
+                @content
+            </div>
+        </row>
+    </container>
+<br>
+    <container>
+        <footer>
+        <row>
+            <div class="col-md-12">
+                Copyright
+                <strong>Online Shop</strong>
+            </div>
+        </row>
+    </footer>
+    </container>
+    <script src="@routes.Assets.versioned("javascripts/main.js")"></script>
+</body>
+
+</html>
